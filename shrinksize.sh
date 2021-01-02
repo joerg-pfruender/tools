@@ -14,16 +14,16 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-if [[ "$1" == "-h" ]]; then
+set -euo pipefail
+
+QUALITY_VALUE=${1:-60}
+
+if [[ "${QUALITY_VALUE}" == "-h" ]]; then
   echo "decreases the quality off all jpg files in the directory using imagemagick"
   echo "Usage: shrinksize.sh quality"
   echo "where quality should be between 1 and 99, default is 60"
   exit 0
 fi
-
-set -euo pipefail
-
-QUALITY_VALUE=${1:-60} 
 
 for i in *.jpg; 
 do 
